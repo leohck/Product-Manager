@@ -5,9 +5,9 @@
 
 {% block main %}
     <div class="topnav">
-          <a href="#">Home</a>
-          <a href="#">Produtos</a>
-          <a class="active" href="{% url 'home' %}">Usuário</a>
+          <a href="{% url 'home' %}">Home</a>
+          <a href="{% url 'products' %}">Produtos</a>
+          <a class="active" href="{% url 'user' %}">Usuário</a>
     </div>
     {% if user.is_authenticated %}
         <p>Ola {{ user.username }}</p>

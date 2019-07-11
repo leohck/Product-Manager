@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    Products
+{% endblock %}
+{% block main %}
+    <div class="topnav">
+          <a href="{% url 'home' %}">Home</a>
+          <a class="active" href="{% url 'products' %}">Produtos</a>
+          <a href="{% url 'user' %}">Usuário</a>
+    </div>
+    <h1>Products</h1>
+    <ul class="list-group">
+        {% for product in produtos %}
+            <li class="list-group-item">
+            {{ product }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
