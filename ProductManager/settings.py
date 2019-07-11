@@ -121,3 +121,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "products/static/css"),
 ]
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = 'home'
+
+LOGOUT_URL = '/logout/'
+
+LOGOUT_REDIRECT_URL = 'home'

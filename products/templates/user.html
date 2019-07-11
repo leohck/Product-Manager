@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    User
+{% endblock %}
+
+{% block main %}
+    <div class="topnav">
+          <a href="#">Home</a>
+          <a href="#">Produtos</a>
+          <a class="active" href="{% url 'home' %}">Usuário</a>
+    </div>
+    {% if user.is_authenticated %}
+        <p>Ola {{ user.username }}</p>
+        <a href="{% url 'logout' %}">Sair</a>
+    {% else %}
+        <a href="{% url 'login' %}">Entrar</a>
+    {% endif %}
+{% endblock %}
