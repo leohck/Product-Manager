@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    BlackRoutes
+{% endblock %}
+
+{% block main %}
+    <div class="topnav">
+          <a class="active" href="#">Home</a>
+          <a href="#">Produtos</a>
+          <a href="{% url 'login' %}">Login</a>
+    </div>
+{% endblock %}

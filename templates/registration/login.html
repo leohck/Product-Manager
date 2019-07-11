@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Pagina  Login {% endblock %}
+
+{% block main %}
+    <div class="topnav">
+          <a href="{% url 'home' %}">Home</a>
+          <a href="#">Produtos</a>
+          <a class="active" href="{% url 'login' %}">Login</a>
+    </div>
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-info">Login</button>
+    </form>
+{% endblock %}
