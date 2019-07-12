@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}
-    User
+    Criar Conta
 {% endblock %}
-
 {% block main %}
     <div class="topnav">
           <a href="{% url 'home' %}">Home</a>
           <a href="{% url 'products' %}">Produtos</a>
           <a class="active" href="{% url 'user' %}">Usuário</a>
     </div>
-    {% if user.is_authenticated %}
-        <p>Ola {{ user.username }}</p>
-        <a href="{% url 'logout' %}">Sair</a>
-    {% else %}
-        <a href="{% url 'login' %}">Entrar</a>
-        <a href="{% url 'newuser' %}">Cadastrar-se</a>
-    {% endif %}
+    <h1>Criar Conta</h1>
+    <form method="POST">
+            {% csrf_token %}
+            {{NewUserForm.as_table}}
+        <button type="submit">Submit</button>
+    </form>
 {% endblock %}
