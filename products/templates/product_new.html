@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %}
+    New Product
+{% endblock %}
+
+{% block main %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ ProductForm|bootstrap }}
+        <button type="submit" class="btn btn-primary">SALVAR</button>
+    </form>
+{% endblock %}
