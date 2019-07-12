@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 {% block title %}
     Criar Conta
 {% endblock %}
@@ -11,7 +12,7 @@
     <h1>Criar Conta</h1>
     <form method="POST">
             {% csrf_token %}
-            {{NewUserForm.as_table}}
+            {{NewUserForm|bootstrap}}
         <button type="submit">Submit</button>
     </form>
 {% endblock %}

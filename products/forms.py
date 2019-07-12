@@ -1,5 +1,5 @@
-from django.forms import ModelForm, Form
 from django import forms
+from django.forms import ModelForm, Form
 from .models import Products
 
 
@@ -11,6 +11,5 @@ class ProductForm(ModelForm):
 
 
 class NewUserForm(Form):
-    class Meta:
-        login = forms.CharField(max_length=6)
-        passwd = forms.CharField(max_length=6)
+    login = forms.CharField(max_length=6)
+    passwd = forms.CharField(max_length=6)

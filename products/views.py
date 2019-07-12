@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from products.forms import ProductForm, NewUserForm
 from .models import Products
@@ -15,12 +16,20 @@ def user(request):
 
 
 def newuser(request):
-    form = NewUserForm(request.POST or None)
-    if form.is_valid():
-        cd = form.cleaned_data
-        # now in the object cd, you have the form as a dictionary.
-        user_login = cd.get('login')
-        user_pass = cd.get('passwd')
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user_login = cd.get('login')
+            user_passwd = cd.get('passwd')
+            new = User.objects.create_user(
+                username=user_login,
+                password=user_passwd,
+            )
+            new.save()
+            return redirect('user')
+    else:
+        form = NewUserForm()
     context = {'NewUserForm': form}
     return render(request, 'newuser.html', context=context)
 
