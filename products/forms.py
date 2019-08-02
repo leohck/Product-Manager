@@ -12,4 +12,4 @@ class ProductForm(ModelForm):
 
 class NewUserForm(Form):
     login = forms.CharField(max_length=6)
-    passwd = forms.CharField(max_length=6)
+    passwd = forms.CharField(max_length=6, widget=forms.PasswordInput)
